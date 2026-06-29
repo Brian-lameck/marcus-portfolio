@@ -8,17 +8,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables - Vibrant Modern Theme */
+        /* CSS Variables - Warm, Organic "Human" Theme */
         :root {
-            --bg-color: #FAFAFF;
-            --text-main: #1A1A24;
-            --text-muted: #666677;
-            --accent-1: #FF2E93; /* Hot Pink */
-            --accent-2: #00E5FF; /* Electric Cyan */
-            --accent-3: #7000FF; /* Deep Violet */
+            --bg-color: #FDFBF7; /* Warm, creamy off-white */
+            --text-main: #2C2421; /* Deep espresso / warm brown */
+            --text-muted: #857873; /* Earthy taupe */
+            --accent-1: #D98375; /* Soft terracotta / Rose */
+            --accent-2: #F2C1A7; /* Warm peach / Skin tone */
+            --accent-3: #A0594B; /* Deeper clay/rust */
             --gradient-main: linear-gradient(135deg, var(--accent-1), var(--accent-2));
             --gradient-dark: linear-gradient(135deg, var(--accent-3), var(--accent-1));
-            --border-light: #E2E2EE;
+            --border-light: #EBE5DF; /* Warm light border */
             --font-heading: 'Space Grotesk', sans-serif;
             --font-body: 'Manrope', sans-serif;
             --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -40,12 +40,12 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Subtle Film Grain/Noise Overlay */
+        /* Subtle Film Grain/Noise Overlay for an organic feel */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
-            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.04"/%3E%3C/svg%3E');
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.03"/%3E%3C/svg%3E');
             pointer-events: none;
             z-index: 9999;
         }
@@ -75,7 +75,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(250, 250, 255, 0.85);
+            background: rgba(253, 251, 247, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
@@ -86,7 +86,7 @@
         nav.scrolled {
             padding: 1.5rem 5%;
             border-bottom: 1px solid var(--border-light);
-            box-shadow: 0 10px 30px rgba(112, 0, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(44, 36, 33, 0.03);
         }
 
         .logo {
@@ -141,13 +141,13 @@
             overflow: hidden;
         }
         
-        /* Vibrant Hero Glow */
+        /* Warm Organic Glow */
         .hero::before {
             content: '';
             position: absolute;
             top: -20%; right: -10%;
             width: 60vw; height: 60vw;
-            background: radial-gradient(circle, rgba(0,229,255,0.15) 0%, rgba(250,250,255,0) 70%);
+            background: radial-gradient(circle, rgba(217, 131, 117, 0.12) 0%, rgba(253, 251, 247, 0) 70%);
             z-index: -1;
             border-radius: 50%;
         }
@@ -208,7 +208,7 @@
             width: 10px; height: 10px;
             background: var(--gradient-main);
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255, 46, 147, 0.5);
+            box-shadow: 0 0 10px rgba(217, 131, 117, 0.4);
         }
 
         .stats-grid {
@@ -270,7 +270,7 @@
             border-color: transparent;
             color: #fff !important;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 46, 147, 0.2);
+            box-shadow: 0 10px 20px rgba(217, 131, 117, 0.2);
         }
         
         .skill-tag:hover::before {
@@ -311,7 +311,7 @@
             margin-bottom: 2.5rem;
             position: relative;
             border-radius: 12px;
-            box-shadow: 0 20px 50px rgba(26, 26, 36, 0.1);
+            box-shadow: 0 20px 50px rgba(44, 36, 33, 0.08);
         }
 
         .gallery-img-wrapper img {
@@ -356,11 +356,11 @@
             font-weight: 800;
         }
 
-        /* Engineering Section (Mechanical & Web) - Deep Vibrant Dark Mode */
+        /* Engineering Section - Warm Earthy Dark Mode */
         .engineering-section {
             padding: 10rem 5%;
-            background: #0D0518; /* Deep rich violet/black */
-            color: #fff;
+            background: #2C2421; /* Dark espresso brown */
+            color: #FDFBF7;
             position: relative;
             overflow: hidden;
         }
@@ -370,7 +370,7 @@
             position: absolute;
             bottom: -20%; left: -10%;
             width: 50vw; height: 50vw;
-            background: radial-gradient(circle, rgba(112,0,255,0.2) 0%, rgba(13,5,24,0) 70%);
+            background: radial-gradient(circle, rgba(217, 131, 117, 0.15) 0%, rgba(44, 36, 33, 0) 70%);
             z-index: 0;
             pointer-events: none;
         }
@@ -392,7 +392,7 @@
 
         .engineering-header p {
             font-size: 1.2rem;
-            color: #B0A8C0;
+            color: #C0B4AF; /* Lighter warm taupe */
             line-height: 1.6;
         }
 
@@ -405,8 +405,8 @@
         }
 
         .dev-card {
-            background: #1A0B2E;
-            border: 1px solid #331A55;
+            background: #3A312E; /* Slightly lighter brown */
+            border: 1px solid #4D413E;
             border-radius: 12px;
             overflow: hidden;
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease, box-shadow 0.5s ease;
@@ -419,14 +419,14 @@
         .dev-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent-2);
-            box-shadow: 0 20px 50px rgba(0, 229, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(217, 131, 117, 0.1);
         }
 
         .dev-img {
             width: 100%;
             aspect-ratio: 16/9;
             overflow: hidden;
-            border-bottom: 1px solid #331A55;
+            border-bottom: 1px solid #4D413E;
         }
 
         .dev-img img {
@@ -434,6 +434,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.8s ease;
+            filter: sepia(20%) hue-rotate(-10deg); /* Gives a slightly warm hue to the images */
         }
 
         .dev-card:hover .dev-img img {
@@ -447,12 +448,12 @@
         .dev-content h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: #fff;
+            color: #FDFBF7;
             letter-spacing: -0.5px;
         }
 
         .dev-content p {
-            color: #A396B8;
+            color: #C0B4AF;
             font-size: 1.05rem;
             line-height: 1.6;
             margin-bottom: 1.5rem;
@@ -469,12 +470,12 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--accent-2);
-            background: rgba(0, 229, 255, 0.1);
+            background: rgba(242, 193, 167, 0.1);
             padding: 0.4rem 0.8rem;
             border-radius: 4px;
             font-weight: 700;
             font-family: var(--font-heading);
-            border: 1px solid rgba(0, 229, 255, 0.2);
+            border: 1px solid rgba(242, 193, 167, 0.2);
         }
 
         /* Multidisciplinary Sections */
@@ -526,7 +527,7 @@
             letter-spacing: 1px;
             color: var(--accent-3);
             font-weight: 700;
-            background: rgba(112, 0, 255, 0.05);
+            background: rgba(217, 131, 117, 0.08);
             padding: 5px 12px;
             border-radius: 20px;
         }
@@ -547,7 +548,7 @@
             overflow: hidden;
             aspect-ratio: 3/4;
             background: var(--border-light);
-            box-shadow: 0 30px 60px rgba(26, 26, 36, 0.15);
+            box-shadow: 0 30px 60px rgba(44, 36, 33, 0.08);
         }
         
         .multi-images.staggered .img-wrap:nth-child(2) {
@@ -568,7 +569,7 @@
         /* Philosophy */
         .philosophy {
             padding: 10rem 5%;
-            background: linear-gradient(180deg, var(--bg-color) 0%, #F0F4FF 100%);
+            background: linear-gradient(180deg, var(--bg-color) 0%, #F5F1EC 100%);
         }
 
         .phil-grid {
@@ -581,15 +582,15 @@
             background: #fff;
             padding: 3rem;
             border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            box-shadow: 0 20px 40px rgba(44, 36, 33, 0.03);
             border: 1px solid var(--border-light);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
         
         .phil-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 229, 255, 0.1);
-            border-color: rgba(0, 229, 255, 0.3);
+            box-shadow: 0 30px 60px rgba(217, 131, 117, 0.08);
+            border-color: rgba(217, 131, 117, 0.3);
         }
 
         .phil-card h3 {
@@ -601,10 +602,10 @@
         }
 
         .phil-card h3 span {
-            color: var(--accent-1);
+            color: var(--accent-3);
             font-size: 1.2rem;
             font-weight: 900;
-            background: rgba(255, 46, 147, 0.1);
+            background: rgba(217, 131, 117, 0.1);
             padding: 8px 12px;
             border-radius: 8px;
         }
@@ -619,7 +620,7 @@
         footer {
             padding: 10rem 5% 5rem;
             text-align: center;
-            background: #F0F4FF;
+            background: #F5F1EC;
         }
 
         .footer-cta {
@@ -711,7 +712,7 @@
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100vh;
-            background: rgba(250, 250, 255, 0.98);
+            background: rgba(253, 251, 247, 0.98);
             backdrop-filter: blur(15px);
             z-index: 1050;
             flex-direction: column;
@@ -740,229 +741,112 @@
 
         .mobile-nav a:hover { color: var(--accent-1); }
 
-        /* ─── Tablet: 1024px ────────────────────────── */
+        /* ─── Media Queries (Unchanged structurally, kept for responsiveness) ────────────────────────── */
         @media (max-width: 1024px) {
             nav { padding: 1.5rem 5%; }
-
-            .hero {
-                padding: 12rem 5% 7rem;
-                min-height: 80vh;
-            }
-
+            .hero { padding: 12rem 5% 7rem; min-height: 80vh; }
             .hero p { font-size: 1.15rem; }
-
             .overview { grid-template-columns: 1fr; }
-
-            .overview-col {
-                padding: 5rem 5%;
-                border-right: none;
-                border-bottom: 1px solid var(--border-light);
-            }
-
+            .overview-col { padding: 5rem 5%; border-right: none; border-bottom: 1px solid var(--border-light); }
             .overview-col:last-child { border-bottom: none; }
-
             .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-
             .stat-block h3 { font-size: 2.8rem; }
-
             .gallery-section { padding: 8rem 5%; }
-
             .gallery-header { margin-bottom: 5rem; }
-
             .gallery-header h2 { font-size: 3.8rem; }
-
             .gallery-grid { gap: 4rem; }
-
             .gallery-item:nth-child(even) { margin-top: 6rem; }
-
             .gallery-info h3 { font-size: 1.6rem; }
-
             .engineering-section { padding: 8rem 5%; }
-
             .engineering-header h2 { font-size: 3.5rem; }
-
             .dev-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
-
             .dev-card:nth-child(even) { margin-top: 4rem; }
-
             .multi-section { padding: 8rem 5%; }
-
-            .multi-grid,
-            .multi-grid.reverse {
-                grid-template-columns: 1fr;
-                gap: 4rem;
-            }
-
+            .multi-grid, .multi-grid.reverse { grid-template-columns: 1fr; gap: 4rem; }
             .multi-grid.reverse .multi-text { order: -1; }
-
             .multi-grid.reverse .multi-images { order: 1; }
-
             .multi-text h2 { font-size: 3.2rem; }
-
             .multi-images.staggered .img-wrap:nth-child(2) { margin-top: 0; }
-
             .multi-images.single .img-wrap { aspect-ratio: 16/9; }
-
-            .phil-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 3rem;
-            }
-
+            .phil-grid { grid-template-columns: repeat(3, 1fr); gap: 3rem; }
             .philosophy { padding: 8rem 5%; }
-
             footer { padding: 8rem 5% 5rem; }
-
             .footer-info { gap: 3rem; }
         }
 
-        /* ─── Large Mobile: 768px ───────────────────── */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: flex; }
             .mobile-nav { display: flex; }
-
             nav { padding: 1.25rem 5%; }
-
-            .hero {
-                padding: 10rem 5% 6rem;
-                min-height: auto;
-            }
-
-            .hero h1 {
-                letter-spacing: -2px;
-                margin-bottom: 2rem;
-            }
-
+            .hero { padding: 10rem 5% 6rem; min-height: auto; }
+            .hero h1 { letter-spacing: -2px; margin-bottom: 2rem; }
             .hero p { font-size: 1.1rem; max-width: 100%; }
-
             .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-
             .stat-block h3 { font-size: 2rem; letter-spacing: -1px; }
-
             .stat-block p { font-size: 0.75rem; }
-
             .gallery-section { padding: 6rem 5%; }
-
             .gallery-header { margin-bottom: 4rem; }
-
             .gallery-header h2 { font-size: 3rem; letter-spacing: -1px; }
-
             .gallery-grid { grid-template-columns: 1fr; gap: 4rem; }
-
             .gallery-item:nth-child(even) { margin-top: 0; }
-
             .gallery-info h3 { font-size: 1.5rem; }
-
             .engineering-section { padding: 6rem 5%; }
-
             .engineering-header h2 { font-size: 3rem; letter-spacing: -1px; }
-
             .dev-grid { grid-template-columns: 1fr; gap: 3rem; }
-
             .dev-card:nth-child(even) { margin-top: 0; }
-
             .multi-section { padding: 6rem 5%; }
-
             .multi-text h2 { font-size: 2.8rem; letter-spacing: -1px; }
-
             .multi-text p { font-size: 1.05rem; max-width: 100%; }
-
             .multi-images { grid-template-columns: 1fr; gap: 2rem; }
-
             .multi-images.single .img-wrap { aspect-ratio: 4/3; }
-
             .philosophy { padding: 6rem 5%; }
-
             .phil-grid { grid-template-columns: 1fr; gap: 3rem; }
-
             .phil-card h3 { font-size: 1.5rem; }
-
             footer { padding: 6rem 5% 4rem; }
-
             .footer-cta { letter-spacing: -2px; }
-
-            .footer-info {
-                flex-direction: column;
-                gap: 1.2rem;
-                font-size: 0.85rem;
-            }
+            .footer-info { flex-direction: column; gap: 1.2rem; font-size: 0.85rem; }
         }
 
-        /* ─── Mobile: 480px ─────────────────────────── */
         @media (max-width: 480px) {
             nav { padding: 1.1rem 5%; }
-
             .logo { font-size: 1.15rem; }
-
             .hero { padding: 8.5rem 5% 5rem; }
-
             .hero h1 { letter-spacing: -1.5px; margin-bottom: 1.5rem; }
-
             .hero p { font-size: 1rem; line-height: 1.65; }
-
             .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 2rem; }
-
             .stat-block h3 { font-size: 1.7rem; }
-
             .skill-tag { padding: 0.8rem 1.3rem; font-size: 0.82rem; }
-
             .gallery-section { padding: 5rem 5%; }
-
             .gallery-header h2 { font-size: 2.4rem; }
-
             .gallery-info h3 { font-size: 1.3rem; }
-
             .gallery-info p.desc { font-size: 0.95rem; }
-
             .engineering-section { padding: 5rem 5%; }
-
             .engineering-header h2 { font-size: 2.4rem; }
-
             .engineering-header p { font-size: 1rem; }
-
             .dev-content { padding: 1.8rem; }
-
             .dev-content h3 { font-size: 1.4rem; }
-
             .multi-section { padding: 5rem 5%; }
-
             .multi-text h2 { font-size: 2.2rem; letter-spacing: -0.5px; }
-
             .multi-text p { font-size: 1rem; }
-
             .section-label { font-size: 0.75rem; margin-bottom: 2.5rem; }
-
             .philosophy { padding: 5rem 5%; }
-
             .phil-card { padding: 2rem; }
-
             .phil-card h3 { font-size: 1.3rem; gap: 10px; }
-
             .phil-card p { font-size: 0.95rem; }
-
             footer { padding: 5rem 5% 3.5rem; }
-
             .footer-cta { letter-spacing: -1.5px; }
-
             footer > p { font-size: 1rem !important; }
-
             .footer-info { gap: 1rem; }
-
             .mobile-nav a { font-size: 1.6rem; }
         }
 
-        /* ─── Extra Small: 360px ────────────────────── */
         @media (max-width: 360px) {
             .hero h1 { letter-spacing: -1px; }
-
             .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-
             .stat-block h3 { font-size: 1.5rem; }
-
             .multi-text h2 { font-size: 1.9rem; }
-
-            .gallery-header h2,
-            .engineering-header h2 { font-size: 2rem; }
+            .gallery-header h2, .engineering-header h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -996,7 +880,7 @@
 
     <header class="hero fade-up">
         <h1>Engineering the Future.<br><span>Designing the Experience.</span></h1>
-        <p>Hello and welcome! I am Daniel Atuma a Mechanical Engineering student with a relentless passion for innovation, creative problem-solving, and full-stack digital execution. I bridge the gap between technical mechanics, robust web programming, and high-impact visual media.</p>
+        <p>Hello and welcome! I am Daniel Atuma—a Mechanical Engineering student with a relentless passion for innovation, creative problem-solving, and full-stack digital execution. I bridge the gap between technical mechanics, robust web programming, and high-impact visual media.</p>
     </header>
 
     <section id="overview" class="overview">
@@ -1035,7 +919,7 @@
     <section id="engineering" class="multi-section">
         <div class="multi-grid fade-up">
             <div class="multi-text">
-                <div class="section-label" style="color: var(--accent-1);">Technical Foundation</div>
+                <div class="section-label">Technical Foundation</div>
                 <h2>Mechanical Engineering & Innovation.</h2>
                 <p>I am deeply passionate about how the world works. My foundation is built on physics, thermodynamics, and logical problem-solving.</p>
                 <p>I don't just design the aesthetics of a product; I understand its physical constraints, its mechanics, and how to innovate within real-world boundaries. Whether evaluating material strengths or drafting blueprints, I apply rigorous analytical thinking to physical problems.</p>
@@ -1057,7 +941,7 @@
 
     <section id="web-dev" class="engineering-section">
         <div class="engineering-header fade-up">
-            <div class="section-label" style="color: var(--accent-2);">Code & Infrastructure</div>
+            <div class="section-label">Code & Infrastructure</div>
             <h2>Full Stack Web Development.</h2>
             <p>I don't just design the interfaces; I architect the invisible engines that power them. My programming methodology mirrors my engineering process: strictly structured, highly optimized, and rigorously tested for scale.</p>
         </div>
@@ -1127,7 +1011,7 @@
         </div>
     </section>
 
-    <section id="digital-marketing" class="multi-section" style="background: #FAFAFF;">
+    <section id="digital-marketing" class="multi-section" style="background: #FDFBF7;">
         <div class="multi-grid fade-up">
             <div class="multi-text">
                 <div class="section-label">Growth & Visibility</div>
@@ -1150,7 +1034,7 @@
         </div>
     </section>
 
-    <section id="3d-design" class="multi-section" style="background: #FFF0F5;">
+    <section id="3d-design" class="multi-section" style="background: #F9F4F0;">
         <div class="multi-grid reverse fade-up">
             <div class="multi-images single">
                 <div class="img-wrap">
@@ -1173,7 +1057,7 @@
         </div>
     </section>
 
-    <section id="writing" class="multi-section" style="background: #F0F8FF;">
+    <section id="writing" class="multi-section" style="background: #FDFBF7;">
         <div class="multi-grid fade-up">
             <div class="multi-text">
                 <div class="section-label">Digital & Technical Copy</div>
@@ -1196,7 +1080,7 @@
         </div>
     </section>
 
-    <section id="creative" class="multi-section" style="background: #FAFAFF;">
+    <section id="creative" class="multi-section" style="background: #F5F1EC;">
         <div class="multi-grid reverse fade-up">
             <div class="multi-images staggered">
                 <div class="img-wrap">
