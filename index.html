@@ -8,13 +8,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables - Minimalist Agency Theme */
+        /* CSS Variables - Vibrant Modern Theme */
         :root {
-            --bg-color: #F8F8F8;
-            --text-main: #0A0A0A;
-            --text-muted: #555555;
-            --accent-color: #FF3300; 
-            --border-light: #E0E0E0;
+            --bg-color: #FAFAFF;
+            --text-main: #1A1A24;
+            --text-muted: #666677;
+            --accent-1: #FF2E93; /* Hot Pink */
+            --accent-2: #00E5FF; /* Electric Cyan */
+            --accent-3: #7000FF; /* Deep Violet */
+            --gradient-main: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            --gradient-dark: linear-gradient(135deg, var(--accent-3), var(--accent-1));
+            --border-light: #E2E2EE;
             --font-heading: 'Space Grotesk', sans-serif;
             --font-body: 'Manrope', sans-serif;
             --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -59,7 +63,7 @@
         }
 
         ::selection {
-            background: var(--accent-color);
+            background: var(--accent-1);
             color: #fff;
         }
 
@@ -71,7 +75,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(248, 248, 248, 0.85);
+            background: rgba(250, 250, 255, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
@@ -82,6 +86,7 @@
         nav.scrolled {
             padding: 1.5rem 5%;
             border-bottom: 1px solid var(--border-light);
+            box-shadow: 0 10px 30px rgba(112, 0, 255, 0.05);
         }
 
         .logo {
@@ -90,6 +95,9 @@
             font-size: 1.4rem;
             letter-spacing: -0.5px;
             text-transform: uppercase;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
@@ -108,9 +116,9 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            width: 100%; height: 2px;
+            width: 100%; height: 3px;
             bottom: -6px; left: 0;
-            background: var(--accent-color);
+            background: var(--gradient-main);
             transform: scaleX(0);
             transform-origin: right;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -129,6 +137,19 @@
             flex-direction: column;
             justify-content: center;
             border-bottom: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Vibrant Hero Glow */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%; right: -10%;
+            width: 60vw; height: 60vw;
+            background: radial-gradient(circle, rgba(0,229,255,0.15) 0%, rgba(250,250,255,0) 70%);
+            z-index: -1;
+            border-radius: 50%;
         }
 
         .hero h1 {
@@ -140,7 +161,9 @@
         }
 
         .hero h1 span {
-            color: var(--accent-color);
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
@@ -172,7 +195,7 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--accent-color);
+            color: var(--accent-1);
             margin-bottom: 4rem;
             font-weight: 700;
             display: flex;
@@ -182,9 +205,10 @@
 
         .section-label::before {
             content: '';
-            width: 8px; height: 8px;
-            background: var(--accent-color);
+            width: 10px; height: 10px;
+            background: var(--gradient-main);
             border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 46, 147, 0.5);
         }
 
         .stats-grid {
@@ -197,6 +221,7 @@
             font-size: 3.5rem;
             margin-bottom: 0.5rem;
             letter-spacing: -2px;
+            color: var(--accent-3);
         }
 
         .stat-block p {
@@ -216,7 +241,7 @@
 
         .skill-tag {
             padding: 1rem 1.8rem;
-            border: 1px solid var(--border-light);
+            border: 2px solid var(--border-light);
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 700;
@@ -226,13 +251,30 @@
             display: inline-block;
             text-decoration: none;
             color: var(--text-main);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
         
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--gradient-main);
+            z-index: -1;
+            transition: opacity 0.4s ease;
+            opacity: 0;
+        }
+
         .skill-tag:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color) !important;
-            background: rgba(255, 51, 0, 0.03);
-            transform: translateY(-2px);
+            border-color: transparent;
+            color: #fff !important;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 46, 147, 0.2);
+        }
+        
+        .skill-tag:hover::before {
+            opacity: 1;
         }
 
         /* Gallery / Work Section */
@@ -268,6 +310,8 @@
             background: #EAEAEA;
             margin-bottom: 2.5rem;
             position: relative;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(26, 26, 36, 0.1);
         }
 
         .gallery-img-wrapper img {
@@ -308,21 +352,34 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--accent-color);
+            color: var(--accent-1);
             font-weight: 800;
         }
 
-        /* Engineering Section (Mechanical & Web) */
+        /* Engineering Section (Mechanical & Web) - Deep Vibrant Dark Mode */
         .engineering-section {
             padding: 10rem 5%;
-            background: #080808; 
+            background: #0D0518; /* Deep rich violet/black */
             color: #fff;
-            border-bottom: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .engineering-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20%; left: -10%;
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(112,0,255,0.2) 0%, rgba(13,5,24,0) 70%);
+            z-index: 0;
+            pointer-events: none;
         }
 
         .engineering-header {
             margin-bottom: 6rem;
             max-width: 900px;
+            position: relative;
+            z-index: 1;
         }
 
         .engineering-header h2 {
@@ -335,7 +392,7 @@
 
         .engineering-header p {
             font-size: 1.2rem;
-            color: #A0A0A0;
+            color: #B0A8C0;
             line-height: 1.6;
         }
 
@@ -343,14 +400,16 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 4rem;
+            position: relative;
+            z-index: 1;
         }
 
         .dev-card {
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 8px;
+            background: #1A0B2E;
+            border: 1px solid #331A55;
+            border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
         .dev-card:nth-child(even) {
@@ -359,26 +418,26 @@
 
         .dev-card:hover {
             transform: translateY(-10px);
-            border-color: var(--accent-color);
+            border-color: var(--accent-2);
+            box-shadow: 0 20px 50px rgba(0, 229, 255, 0.15);
         }
 
         .dev-img {
             width: 100%;
             aspect-ratio: 16/9;
             overflow: hidden;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid #331A55;
         }
 
         .dev-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(20%) contrast(1.1) brightness(0.8);
-            transition: filter 0.5s ease;
+            transition: transform 0.8s ease;
         }
 
         .dev-card:hover .dev-img img {
-            filter: grayscale(0%) contrast(1.1) brightness(1);
+            transform: scale(1.05);
         }
 
         .dev-content {
@@ -393,7 +452,7 @@
         }
 
         .dev-content p {
-            color: #888;
+            color: #A396B8;
             font-size: 1.05rem;
             line-height: 1.6;
             margin-bottom: 1.5rem;
@@ -409,19 +468,19 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--accent-color);
-            background: rgba(255, 51, 0, 0.1);
+            color: var(--accent-2);
+            background: rgba(0, 229, 255, 0.1);
             padding: 0.4rem 0.8rem;
             border-radius: 4px;
             font-weight: 700;
             font-family: var(--font-heading);
+            border: 1px solid rgba(0, 229, 255, 0.2);
         }
 
         /* Multidisciplinary Sections */
         .multi-section {
             padding: 10rem 5%;
             background: #FFFFFF;
-            border-bottom: 1px solid var(--border-light);
         }
 
         .multi-grid {
@@ -465,8 +524,11 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--text-main);
+            color: var(--accent-3);
             font-weight: 700;
+            background: rgba(112, 0, 255, 0.05);
+            padding: 5px 12px;
+            border-radius: 20px;
         }
 
         .multi-images {
@@ -481,11 +543,11 @@
         }
 
         .multi-images .img-wrap {
-            border-radius: 4px;
+            border-radius: 12px;
             overflow: hidden;
             aspect-ratio: 3/4;
             background: var(--border-light);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 30px 60px rgba(26, 26, 36, 0.15);
         }
         
         .multi-images.staggered .img-wrap:nth-child(2) {
@@ -506,14 +568,28 @@
         /* Philosophy */
         .philosophy {
             padding: 10rem 5%;
-            background: var(--bg-color);
-            border-bottom: 1px solid var(--border-light);
+            background: linear-gradient(180deg, var(--bg-color) 0%, #F0F4FF 100%);
         }
 
         .phil-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 5rem;
+        }
+
+        .phil-card {
+            background: #fff;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-light);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .phil-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 229, 255, 0.1);
+            border-color: rgba(0, 229, 255, 0.3);
         }
 
         .phil-card h3 {
@@ -525,8 +601,12 @@
         }
 
         .phil-card h3 span {
-            color: var(--accent-color);
-            font-size: 1rem;
+            color: var(--accent-1);
+            font-size: 1.2rem;
+            font-weight: 900;
+            background: rgba(255, 46, 147, 0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
         }
 
         .phil-card p {
@@ -539,7 +619,7 @@
         footer {
             padding: 10rem 5% 5rem;
             text-align: center;
-            background: var(--bg-color);
+            background: #F0F4FF;
         }
 
         .footer-cta {
@@ -553,6 +633,9 @@
             position: relative;
             display: inline-block;
             padding-bottom: 10px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .footer-cta a::after {
@@ -560,14 +643,15 @@
             position: absolute;
             width: 100%; height: 8px;
             bottom: 0; left: 0;
-            background: var(--accent-color);
+            background: var(--gradient-main);
+            border-radius: 4px;
             transition: var(--transition);
         }
 
         .footer-cta a:hover::after {
             height: 40%;
             z-index: -1;
-            opacity: 0.2;
+            opacity: 0.15;
         }
 
         .footer-info {
@@ -578,7 +662,8 @@
             font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            font-weight: 700;
+            font-weight: 800;
+            color: var(--accent-3);
         }
 
         /* Fade Up Animation Class */
@@ -593,33 +678,291 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
+        /* ─── Hamburger Menu Button ─────────────────── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--text-main);
+            border-radius: 2px;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            transform-origin: center;
+        }
+
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--accent-1); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--accent-1); }
+
+        /* Mobile nav drawer */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            background: rgba(250, 250, 255, 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 1050;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .mobile-nav.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-nav a {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover { color: var(--accent-1); }
+
+        /* ─── Tablet: 1024px ────────────────────────── */
         @media (max-width: 1024px) {
-            .overview, .phil-grid, .multi-grid, .multi-grid.reverse {
-                grid-template-columns: 1fr;
-                gap: 5rem;
+            nav { padding: 1.5rem 5%; }
+
+            .hero {
+                padding: 12rem 5% 7rem;
+                min-height: 80vh;
             }
+
+            .hero p { font-size: 1.15rem; }
+
+            .overview { grid-template-columns: 1fr; }
+
             .overview-col {
                 padding: 5rem 5%;
                 border-right: none;
                 border-bottom: 1px solid var(--border-light);
             }
-            .multi-grid.reverse .multi-text {
-                order: -1;
+
+            .overview-col:last-child { border-bottom: none; }
+
+            .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+            .stat-block h3 { font-size: 2.8rem; }
+
+            .gallery-section { padding: 8rem 5%; }
+
+            .gallery-header { margin-bottom: 5rem; }
+
+            .gallery-header h2 { font-size: 3.8rem; }
+
+            .gallery-grid { gap: 4rem; }
+
+            .gallery-item:nth-child(even) { margin-top: 6rem; }
+
+            .gallery-info h3 { font-size: 1.6rem; }
+
+            .engineering-section { padding: 8rem 5%; }
+
+            .engineering-header h2 { font-size: 3.5rem; }
+
+            .dev-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+
+            .dev-card:nth-child(even) { margin-top: 4rem; }
+
+            .multi-section { padding: 8rem 5%; }
+
+            .multi-grid,
+            .multi-grid.reverse {
+                grid-template-columns: 1fr;
+                gap: 4rem;
             }
-            .multi-images.staggered .img-wrap:nth-child(2) {
-                margin-top: 0;
+
+            .multi-grid.reverse .multi-text { order: -1; }
+
+            .multi-grid.reverse .multi-images { order: 1; }
+
+            .multi-text h2 { font-size: 3.2rem; }
+
+            .multi-images.staggered .img-wrap:nth-child(2) { margin-top: 0; }
+
+            .multi-images.single .img-wrap { aspect-ratio: 16/9; }
+
+            .phil-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 3rem;
             }
-            .dev-card:nth-child(even) { margin-top: 0; }
+
+            .philosophy { padding: 8rem 5%; }
+
+            footer { padding: 8rem 5% 5rem; }
+
+            .footer-info { gap: 3rem; }
         }
 
+        /* ─── Large Mobile: 768px ───────────────────── */
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .gallery-grid, .dev-grid { grid-template-columns: 1fr; gap: 5rem; }
+            .hamburger { display: flex; }
+            .mobile-nav { display: flex; }
+
+            nav { padding: 1.25rem 5%; }
+
+            .hero {
+                padding: 10rem 5% 6rem;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+                margin-bottom: 2rem;
+            }
+
+            .hero p { font-size: 1.1rem; max-width: 100%; }
+
+            .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+            .stat-block h3 { font-size: 2rem; letter-spacing: -1px; }
+
+            .stat-block p { font-size: 0.75rem; }
+
+            .gallery-section { padding: 6rem 5%; }
+
+            .gallery-header { margin-bottom: 4rem; }
+
+            .gallery-header h2 { font-size: 3rem; letter-spacing: -1px; }
+
+            .gallery-grid { grid-template-columns: 1fr; gap: 4rem; }
+
             .gallery-item:nth-child(even) { margin-top: 0; }
-            .multi-images { grid-template-columns: 1fr; gap: 3rem; }
-            .footer-info { flex-direction: column; gap: 1.5rem; }
-            .hero { padding-top: 10rem; }
+
+            .gallery-info h3 { font-size: 1.5rem; }
+
+            .engineering-section { padding: 6rem 5%; }
+
+            .engineering-header h2 { font-size: 3rem; letter-spacing: -1px; }
+
+            .dev-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+            .dev-card:nth-child(even) { margin-top: 0; }
+
+            .multi-section { padding: 6rem 5%; }
+
+            .multi-text h2 { font-size: 2.8rem; letter-spacing: -1px; }
+
+            .multi-text p { font-size: 1.05rem; max-width: 100%; }
+
+            .multi-images { grid-template-columns: 1fr; gap: 2rem; }
+
+            .multi-images.single .img-wrap { aspect-ratio: 4/3; }
+
+            .philosophy { padding: 6rem 5%; }
+
+            .phil-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+            .phil-card h3 { font-size: 1.5rem; }
+
+            footer { padding: 6rem 5% 4rem; }
+
+            .footer-cta { letter-spacing: -2px; }
+
+            .footer-info {
+                flex-direction: column;
+                gap: 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ─── Mobile: 480px ─────────────────────────── */
+        @media (max-width: 480px) {
+            nav { padding: 1.1rem 5%; }
+
+            .logo { font-size: 1.15rem; }
+
+            .hero { padding: 8.5rem 5% 5rem; }
+
+            .hero h1 { letter-spacing: -1.5px; margin-bottom: 1.5rem; }
+
+            .hero p { font-size: 1rem; line-height: 1.65; }
+
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 2rem; }
+
+            .stat-block h3 { font-size: 1.7rem; }
+
+            .skill-tag { padding: 0.8rem 1.3rem; font-size: 0.82rem; }
+
+            .gallery-section { padding: 5rem 5%; }
+
+            .gallery-header h2 { font-size: 2.4rem; }
+
+            .gallery-info h3 { font-size: 1.3rem; }
+
+            .gallery-info p.desc { font-size: 0.95rem; }
+
+            .engineering-section { padding: 5rem 5%; }
+
+            .engineering-header h2 { font-size: 2.4rem; }
+
+            .engineering-header p { font-size: 1rem; }
+
+            .dev-content { padding: 1.8rem; }
+
+            .dev-content h3 { font-size: 1.4rem; }
+
+            .multi-section { padding: 5rem 5%; }
+
+            .multi-text h2 { font-size: 2.2rem; letter-spacing: -0.5px; }
+
+            .multi-text p { font-size: 1rem; }
+
+            .section-label { font-size: 0.75rem; margin-bottom: 2.5rem; }
+
+            .philosophy { padding: 5rem 5%; }
+
+            .phil-card { padding: 2rem; }
+
+            .phil-card h3 { font-size: 1.3rem; gap: 10px; }
+
+            .phil-card p { font-size: 0.95rem; }
+
+            footer { padding: 5rem 5% 3.5rem; }
+
+            .footer-cta { letter-spacing: -1.5px; }
+
+            footer > p { font-size: 1rem !important; }
+
+            .footer-info { gap: 1rem; }
+
+            .mobile-nav a { font-size: 1.6rem; }
+        }
+
+        /* ─── Extra Small: 360px ────────────────────── */
+        @media (max-width: 360px) {
+            .hero h1 { letter-spacing: -1px; }
+
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+            .stat-block h3 { font-size: 1.5rem; }
+
+            .multi-text h2 { font-size: 1.9rem; }
+
+            .gallery-header h2,
+            .engineering-header h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -635,11 +978,25 @@
             <a href="#work">Archive</a>
             <a href="#contact">Contact</a>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#overview" class="mobile-nav-link">Capabilities</a>
+        <a href="#engineering" class="mobile-nav-link">Engineering</a>
+        <a href="#web-dev" class="mobile-nav-link">Programming</a>
+        <a href="#digital-marketing" class="mobile-nav-link">Marketing</a>
+        <a href="#work" class="mobile-nav-link">Archive</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
 
     <header class="hero fade-up">
         <h1>Engineering the Future.<br><span>Designing the Experience.</span></h1>
-        <p>Hello and welcome! I am Daniel Atuma—a Mechanical Engineering student with a relentless passion for innovation, creative problem-solving, and full-stack digital execution. I bridge the gap between technical mechanics, robust web programming, and high-impact visual media.</p>
+        <p>Hello and welcome! I am Daniel Atuma a Mechanical Engineering student with a relentless passion for innovation, creative problem-solving, and full-stack digital execution. I bridge the gap between technical mechanics, robust web programming, and high-impact visual media.</p>
     </header>
 
     <section id="overview" class="overview">
@@ -664,7 +1021,7 @@
         <div class="overview-col fade-up">
             <div class="section-label">My Arsenal</div>
             <div class="skills-list">
-                <a href="#engineering" class="skill-tag" style="background: var(--text-main); color: #fff; border-color: var(--text-main);">Mechanical Engineering</a>
+                <a href="#engineering" class="skill-tag" style="background: var(--gradient-main); color: #fff; border-color: transparent;">Mechanical Engineering</a>
                 <a href="#web-dev" class="skill-tag">Full Stack Web Dev</a>
                 <a href="#digital-marketing" class="skill-tag">Digital Marketing & SEO</a>
                 <a href="#creative" class="skill-tag">Content Creation</a>
@@ -678,7 +1035,7 @@
     <section id="engineering" class="multi-section">
         <div class="multi-grid fade-up">
             <div class="multi-text">
-                <div class="section-label" style="color: var(--accent-color);">Technical Foundation</div>
+                <div class="section-label" style="color: var(--accent-1);">Technical Foundation</div>
                 <h2>Mechanical Engineering & Innovation.</h2>
                 <p>I am deeply passionate about how the world works. My foundation is built on physics, thermodynamics, and logical problem-solving.</p>
                 <p>I don't just design the aesthetics of a product; I understand its physical constraints, its mechanics, and how to innovate within real-world boundaries. Whether evaluating material strengths or drafting blueprints, I apply rigorous analytical thinking to physical problems.</p>
@@ -700,7 +1057,7 @@
 
     <section id="web-dev" class="engineering-section">
         <div class="engineering-header fade-up">
-            <div class="section-label" style="color: var(--accent-color);">Code & Infrastructure</div>
+            <div class="section-label" style="color: var(--accent-2);">Code & Infrastructure</div>
             <h2>Full Stack Web Development.</h2>
             <p>I don't just design the interfaces; I architect the invisible engines that power them. My programming methodology mirrors my engineering process: strictly structured, highly optimized, and rigorously tested for scale.</p>
         </div>
@@ -770,7 +1127,7 @@
         </div>
     </section>
 
-    <section id="digital-marketing" class="multi-section" style="background: #FFFFFF;">
+    <section id="digital-marketing" class="multi-section" style="background: #FAFAFF;">
         <div class="multi-grid fade-up">
             <div class="multi-text">
                 <div class="section-label">Growth & Visibility</div>
@@ -793,7 +1150,7 @@
         </div>
     </section>
 
-    <section id="3d-design" class="multi-section" style="background: #F4F4F4;">
+    <section id="3d-design" class="multi-section" style="background: #FFF0F5;">
         <div class="multi-grid reverse fade-up">
             <div class="multi-images single">
                 <div class="img-wrap">
@@ -816,7 +1173,7 @@
         </div>
     </section>
 
-    <section id="writing" class="multi-section" style="background: #FFFFFF;">
+    <section id="writing" class="multi-section" style="background: #F0F8FF;">
         <div class="multi-grid fade-up">
             <div class="multi-text">
                 <div class="section-label">Digital & Technical Copy</div>
@@ -839,7 +1196,7 @@
         </div>
     </section>
 
-    <section id="creative" class="multi-section" style="background: #F4F4F4;">
+    <section id="creative" class="multi-section" style="background: #FAFAFF;">
         <div class="multi-grid reverse fade-up">
             <div class="multi-images staggered">
                 <div class="img-wrap">
@@ -960,6 +1317,25 @@
     </footer>
 
     <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        });
+
+        // Close mobile nav on link click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
         // Sticky Navbar styling on scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
